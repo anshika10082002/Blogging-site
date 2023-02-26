@@ -8,7 +8,7 @@ const blogController= require("../controllers/blogController")
 const Middleware = require("../Middleware/auth")
 
 
-
+//=============================================================================================================//
 
 router.post('/authors',authorController.createAuthor) // Creating Authors Data 
 

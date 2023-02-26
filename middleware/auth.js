@@ -8,7 +8,7 @@ const authenticate= async function(req,res,next){
    if(!token){
     return res.status(400).send({status:false,msg:"token must be present"})
    }
-   let verifyToken= jwt.verify(token,"functionup-lithium-very-very-secret-key")
+   let verifyToken = jwt.verify(token,"functionup-lithium-very-very-secret-key")
    if(!verifyToken){
     return res.status(401).send({status:false,msg:"token is invalid"})
    }
@@ -40,7 +40,7 @@ const auth2= async function(req,res,next){
         if(!verifyToken){
          return res.status(400).send({status:false,msg:"token is invalid"})
         }
-        
+
         const{ authorId } = req.body
 
          let  loggedinAuthor= verifyToken.authorId.toString()

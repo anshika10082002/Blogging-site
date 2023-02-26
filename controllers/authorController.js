@@ -44,7 +44,7 @@ const createAuthor= async function(req,res){ // Checking body is empty or not
         res.status(400).send({msg:"Not have appropiate title"})
     }
 
-    if(!isValidName(fname)){ // Name validation
+    if(!isValidName(fname)){ //  Name validation
         return res.status(400).send({status:false,message:"fname is Wrong"})
     }
 
@@ -59,11 +59,11 @@ const createAuthor= async function(req,res){ // Checking body is empty or not
     if(!isValidPassword(password)){ // Password validation
         return res.status(400).send({status:false,message:"Your password must have 8 characters, contain at least one number or symbol, and have a mixture of uppercase and lowercase letters."})
     }
-    
+  
     /*-----------------------------------CREATING AUTHOR-----------------------------------------------------*/
 
     let createAuthor = await authors.create(data)
-    res.status(201).send({status:true,data:createAuthor})
+        return res.status(201).send({status:true,data:createAuthor})
     }
     catch(error){
           res.status(500).send({status:true,message:error.message})
@@ -85,7 +85,7 @@ const loginAuthor = async function (req, res) {
     }
 
     if(!isValidPassword(password)){ // Password validation
-        return res.status(400).send({status:false,message:"Your password must have characters, contain at least one number or symbol, and have a mixture of uppercase and lowercase letters."})
+        return res.status(400).send({status:false,message:"Your password must have 8 characters, contain at least one number or symbol, and have a mixture of uppercase and lowercase letters."})
     }
   
     let author = await authors.findOne( { email: emailId, password: password } );
@@ -101,7 +101,7 @@ const loginAuthor = async function (req, res) {
       },
       "functionup-lithium-very-very-secret-key"
     );
-    res.setHeader("x-auth-token", token);
+    res.setHeader("x-api-token", token);
     res.status(200).send({ status: true, token: token });
 
     }

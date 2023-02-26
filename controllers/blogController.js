@@ -60,13 +60,13 @@ const getblog = async function(req,res){
         }      
 /* ---------------Authorisation--------------------- */
 
-        if(req.verifyToken.authorId !== authorId){
+        if (req.verifyToken.authorId!== authorId){
            // console.log("Authorisation Failed")
-                return  res.status(401).send({status:false,msg:"not Authorized"})
+                return  res.status(403).send({status:false,msg:"not Authorized"})
            }
 //----------------------------------------------------------------------------------------------------------//
      let filterblog= await BlogModel.find(data1).populate("authorId")
-             console.log(filterblog.length)
+            // console.log(filterblog.length)
                        if(filterblog.length>0){
                                res.status(200).send({status:true,data:filterblog})
                         }
