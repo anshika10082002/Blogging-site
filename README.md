@@ -1,4 +1,4 @@
-# Lithium
+ *Lithium*
 
 ## Project Title- *Blogging Site*
 
@@ -9,6 +9,7 @@
 - *The API can be accessed through the base URL `localhost:3000/`*
 
 ### Models
+
 - **Author Model**
 ```yaml
 { 
@@ -19,6 +20,7 @@
   password: {mandatory} 
 }
 ```
+
 - **Blogs Model**
 ```yaml
 { 
@@ -31,7 +33,8 @@
   deletedAt: {when the document is deleted}, 
   isDeleted: {boolean, default:false}, 
   publishedAt: {when the blog is published}, 
-  isPublished: {boolean, default:false}}
+  isPublished: {boolean, default:false}
+  }
 ```
 
 ## Register Author
@@ -79,6 +82,7 @@
 - If no documents are found then return an HTTP status 404 with a response like [this](#error-response-structure)
 
 - _**Filtered**_
+
 - Filter blogs list by applying filters
 - **Query param**(any combination)
   - By author Id
@@ -153,6 +157,7 @@
 ```
 
 ## Collections
+
 ### Blogs
 ```yaml
 {
